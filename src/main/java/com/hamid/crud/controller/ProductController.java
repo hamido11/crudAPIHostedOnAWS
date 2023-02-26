@@ -53,7 +53,7 @@ public class ProductController {
         return new ResponseEntity<>(deleteProduct,HttpStatus.OK);
     }
 
-    //get product by name
+    //get product by its name
     @GetMapping("/products-by-name")
     @CrossOrigin(origins = "*")
     public List<Product> getProductByName(@RequestParam(name = "productName") String productName){
