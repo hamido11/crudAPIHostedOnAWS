@@ -15,6 +15,7 @@ public class ProductController {
     private ProductService productService;
     //insert product into DB
     @PostMapping("/product")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
         Product product1=productService.saveProduct(product);
         return new ResponseEntity<>(product1, HttpStatus.CREATED);
@@ -23,6 +24,7 @@ public class ProductController {
 
     //get single product from dB by its ID
     @GetMapping("/product")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Product> getProduct(@RequestParam(name="product_id") long productid){
         Product getproduct=productService.getProduct(productid);
         return new ResponseEntity<>(getproduct,HttpStatus.OK);
