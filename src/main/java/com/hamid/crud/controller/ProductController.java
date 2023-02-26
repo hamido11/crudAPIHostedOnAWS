@@ -37,6 +37,7 @@ public class ProductController {
   }
     //update product in DB
     @PatchMapping("/product")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Product> updateProduct(@RequestParam(name = "productId")
                                                      long productId,@RequestBody Product product){
         Product updatedProduct=productService.updateProduct(productId,product);
@@ -45,6 +46,7 @@ public class ProductController {
 
     //delete product form DB
     @DeleteMapping("/product")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Product> updateProduct(@RequestParam(name = "productId")
                                                  long productId){
         Product deleteProduct=productService.deleteProduct(productId);
@@ -53,6 +55,7 @@ public class ProductController {
 
     //get product by name
     @GetMapping("/products-by-name")
+    @CrossOrigin(origins = "*")
     public List<Product> getProductByName(@RequestParam(name = "productName") String productName){
         return productService.getproductsByName(productName);
     }
